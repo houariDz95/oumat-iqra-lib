@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useQueries, useQuery } from "@tanstack/react-query";
+import {  useQuery } from "@tanstack/react-query";
 import { fetchFromAPI } from '@/utils/fetchData';
 import {useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
