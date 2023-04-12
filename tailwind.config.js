@@ -24,5 +24,8 @@ module.exports = {
       },
     },
   },
+  images: {
+    domains: ['downloads.hindawi.org'],
+  },
   plugins: [],
 }

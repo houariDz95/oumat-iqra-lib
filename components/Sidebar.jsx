@@ -3,7 +3,8 @@ import { categories } from '@/constants'
 import SidebarItem from './SidebarItem'
 const Sidebar = () => {
   return (
-    <div className="h-auto md:h-[95vh] w-50 md:border-l-1 border-gray-700 px-1 fixed right-0">
+    <div className='flex-[0.2] relative'>
+    <div className="h-auto md:h-[95vh] md:w-[300px] md:border-l-1 border-gray-700 px-1 fixed right-0">
       <div 
       className="h-full 
       flex sm:flex-row 
@@ -20,6 +21,7 @@ const Sidebar = () => {
           <SidebarItem key={cat.name} name={cat.name} path={cat.path} icon={cat.icon}/>
         ))}
       </div>
+    </div>
     </div>
   )
 }
