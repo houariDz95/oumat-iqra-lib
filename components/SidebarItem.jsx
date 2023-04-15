@@ -5,7 +5,7 @@ const SidebarItem = ({path, name, icon}) => {
   const router = useRouter();
   const {cat} = router.query;
   return (   
-    <Link href={`/?cat=${path}`} 
+    <Link href={path ? `/?cat=${path}`: '/'} 
     style={{ backgroundColor:  path === cat  ? "red" : "" }}
     className={`
     text-white

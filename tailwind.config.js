@@ -23,9 +23,12 @@ module.exports = {
         1: '1px',
       },
     },
-  },
-  images: {
-    domains: ['downloads.hindawi.org'],
+    screens: {
+      'xs': '400px',
+      'sm': '576px',
+      'md': '960px',
+      'lg': '1440px',
+    },
   },
   plugins: [],
 }

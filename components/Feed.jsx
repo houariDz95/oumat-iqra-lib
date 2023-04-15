@@ -1,33 +1,61 @@
-import Image from 'next/image';
-import {  useQuery } from "@tanstack/react-query";
 import { fetchFromAPI } from '@/utils/fetchData';
 import {useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
 import Books from './Books';
 import Spinner from './Spinner';
+import Pagination from '@mui/material/Pagination';
 
 export default  function Feed(){
   const router = useRouter();
   const {cat} = router.query;
   const [isLoading, setIsLoading] = useState(false);
   const [books, setBooks] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const booksPerPage = 20
+  const indexOfLastBook = currentPage * booksPerPage;
+  const indexOfFirstBook = indexOfLastBook - booksPerPage;
+  const currentUser = books.slice(indexOfFirstBook, indexOfLastBook)
+
+  const paginate = (e, value) => {
+    setCurrentPage(value);
+
+    window.scrollTo({ top: 1800, behavior: 'smooth' })
+  }
+
 
   useEffect(() => {
     setIsLoading(true)
-    fetchFromAPI(`categories/${cat}`).then((data) => {
+    fetchFromAPI(cat ? `categories/${cat}` : 'new').then((data) => {
       setBooks(data);
       setIsLoading(false)
-    })
+    }).catch((error) => console.log(error))
   }, [cat])
 
   if(isLoading) return <Spinner />
   return (                               
-    <div className='flex-[0.8] px-5 md:px-40'>
-      <div className="flex items-center justify-between flex-row-reverse w-full mt-10 py-5">
-        <h1 className="text-xl font-semibold text-white"><span className="text-red-500 underline" >{cat}</span> كتب</h1>
-        <div>pagination</div>
+    <div className='flex-[0.8] h-screen mt-10 md:mt-0'>
+      <div className="flex items-center justify-between flex-col md:flex-row-reverse w-full mt-5 py-4 px-8">
+        <h1 className="text-lg font-normal text-white mb-4 md:mb-0">عرض من {" "}
+          <span>{indexOfFirstBook}</span> {" "}
+          - {" "}
+          <span>{indexOfLastBook}</span> {""}
+          من أصل {" "}
+          <span>{books.length}</span> كتاب
+         </h1>
+        <div className='flex flex-row-riverse'>
+        <Pagination
+          variant="text"
+          color="primary"
+          shape="rounded"
+          defaultPage={1}
+          count={Math.ceil(books.length / booksPerPage)}
+          page={currentPage}
+          onChange={paginate}
+          size='large'
+        />
+        </div>
       </div>
-      <Books books={books} />
+      <Books books={currentUser} />
     </div>
   )
 }
