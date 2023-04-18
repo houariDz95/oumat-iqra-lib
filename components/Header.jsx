@@ -7,7 +7,8 @@ const Header = ({setDarkMode}) => {
   const [search, setSearch] = useState("")
   const router = useRouter()
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault()
     router.push(`/search/${search}`)
     setSearch("")
   }

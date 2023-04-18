@@ -5,7 +5,7 @@ import { fetchFromAPI } from '@/utils/fetchData';
 
 export default function Home() {
   let localCat = typeof window !== 'undefined' ? localStorage.getItem('cat') : null
-  const [cat, setCat] = useState(localCat ? localCat : "new")
+  const [cat, setCat] = useState(localCat && localCat)
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
 
@@ -18,7 +18,6 @@ export default function Home() {
     })
     .catch(error => console.log(error))
   }, [cat])
-  
   return (
     <main className="flex w-screen max-h-[95vh] h-full flex-col md:flex-row-reverse">
       <Sidebar setCat={setCat} category={cat} />

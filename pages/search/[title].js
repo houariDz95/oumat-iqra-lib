@@ -20,6 +20,7 @@ const Search = () => {
     })
   
     if(isLoading) return <Spinner />
+    console.log(data)
   return (
     <div className="px-5 sm:px-10 md:px-20 min-h-screen mt-10">
       <div className="md:pr-[280px] pr-0 mt-5 text-right">
@@ -29,13 +30,13 @@ const Search = () => {
         <h2 className="text-xl p-2 mb-2 ">نتائج البحث</h2>
         <h2 className="text-xl p-2 mb-2 ">الكتب</h2>
         <div className="flex items-end flex-col">
-            {data?.map(item => (
+            {/* data?.map(item => (
               <div key={item.bookId} className="flex items-center gap-2 p-2 flex-row-reverse text-md">
                 <IoMdArrowDropleft className='text-gray-300'/>
                 <Link className="dark:text-teal-400 text-teal-500 cursor-pointer hover:underline" href={item?.bookId}>{item?.bookTitle} </Link> · بقلم
                 <Link className="dark:text-teal-400 text-teal-500 cursor-pointer hover:underline" href={item?.authorId}> {item?.authorTitle}</Link>
             </div>
-            ))}
+            ))*/}
         </div>
       </div>
     </div>

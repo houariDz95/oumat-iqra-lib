@@ -26,7 +26,7 @@ export default  function Feed({books, isLoading}){
         <h1 className="text-lg font-normal mb-4 md:mb-0">عرض من {" "}
           <span>{indexOfFirstBook}</span> {" "}
           - {" "}
-          <span>{currentBooks.length}</span> {""}
+          <span>{currentBooks?.length}</span> {""}
           من أصل {" "}
           <span>{books.length}</span> كتاب
          </h1>
