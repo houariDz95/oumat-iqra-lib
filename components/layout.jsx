@@ -13,7 +13,7 @@ const Layout = ({children}) => {
   const [darkMode, setDarkMode] = useState(true)
   return (
     <div className={darkMode ? "dark" : ""}>
-    <div  className="h-full flex flex-col bg-main-bg dark:bg-main-dark-bg text-secondary-dark-bg dark:text-white overflow-hidden ">
+    <div  className="h-full flex flex-col bg-main-bg dark:bg-main-dark-bg text-[#222831] dark:text-white overflow-hidden">
       <QueryWrapper>
         <Header setDarkMode={setDarkMode}/>
         <div className="flex-1">

@@ -4,41 +4,29 @@ import { useEffect, useState } from 'react';
 import Books from './Books';
 import Spinner from './Spinner';
 import Pagination from '@mui/material/Pagination';
-
-export default  function Feed(){
-  const router = useRouter();
-  const {cat} = router.query;
-  const [isLoading, setIsLoading] = useState(false);
-  const [books, setBooks] = useState([]);
+    
+export default  function Feed({books, isLoading}){
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 20
   const indexOfLastBook = currentPage * booksPerPage;
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
-  const currentUser = books.slice(indexOfFirstBook, indexOfLastBook)
+  const currentBooks = books?.slice(indexOfFirstBook, indexOfLastBook)
 
   const paginate = (e, value) => {
     setCurrentPage(value);
 
     window.scrollTo({ top: 1800, behavior: 'smooth' })
   }
-
-
-  useEffect(() => {
-    setIsLoading(true)
-    fetchFromAPI(cat ? `categories/${cat}` : 'new').then((data) => {
-      setBooks(data);
-      setIsLoading(false)
-    }).catch((error) => console.log(error))
-  }, [cat])
+ 
 
   if(isLoading) return <Spinner />
   return (                               
     <div className='flex-[0.8] h-screen mt-10 md:mt-0'>
       <div className="flex items-center justify-between flex-col md:flex-row-reverse w-full mt-5 py-4 px-8">
-        <h1 className="text-lg font-normal text-white mb-4 md:mb-0">عرض من {" "}
+        <h1 className="text-lg font-normal mb-4 md:mb-0">عرض من {" "}
           <span>{indexOfFirstBook}</span> {" "}
           - {" "}
-          <span>{indexOfLastBook}</span> {""}
+          <span>{currentBooks.length}</span> {""}
           من أصل {" "}
           <span>{books.length}</span> كتاب
          </h1>
@@ -55,7 +43,7 @@ export default  function Feed(){
         />
         </div>
       </div>
-      <Books books={currentUser} />
+      <Books books={currentBooks} />
     </div>
   )
 }

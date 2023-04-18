@@ -7,7 +7,7 @@ import {IoIosPeople} from 'react-icons/io'
 import {RiPoliceCarFill} from 'react-icons/ri';
 
 export const categories = [
-  { name: 'كتب جديدة', icon: <MdBusinessCenter />, },
+  { name: 'كتب جديدة', path: "new", icon: <MdBusinessCenter />, },
   { name: 'إدارة أعمال', path: 'business', icon: <MdBusinessCenter />, },
   { name: 'أدب', path: 'literature', icon: <BsBookFill />, },
   { name: 'أدب رحلات', path: 'travel.literature', icon: <MdOutlineTravelExplore />, },

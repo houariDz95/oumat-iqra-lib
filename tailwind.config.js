@@ -12,10 +12,10 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        'main-bg': '#FAFBFB',
+        'main-bg': '#EEEEEE',
         'main-dark-bg': '#20232A',
-        'secondary-dark-bg': '#33373E',
-        'main-red': "#E43F5A",
+        'secondary-dark-bg': '#222831',
+        'main-red': "#D65A31",
         'light-gray': '#F7F7F7',
         'half-transparent': 'rgba(0, 0, 0, 0.5)',
       },

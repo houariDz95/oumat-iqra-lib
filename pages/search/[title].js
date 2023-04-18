@@ -1,0 +1,45 @@
+import React from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { useRouter } from 'next/router'
+import Spinner from '../../components/Spinner';
+import { fetchFromAPI } from '@/utils/fetchData';
+import Link from 'next/link';
+import {IoMdArrowDropleft} from 'react-icons/io'
+async function getSearch(title){
+  const response = await fetchFromAPI(`search/${title}`)
+  return response
+}
+
+const Search = () => {
+  const router = useRouter()
+  const {title} = router.query;
+  
+    const {data, isLoading} = useQuery({
+      queryKey: ['detail-search'],
+      queryFn: () => getSearch(title)
+    })
+  
+    if(isLoading) return <Spinner />
+  return (
+    <div className="px-5 sm:px-10 md:px-20 min-h-screen mt-10">
+      <div className="md:pr-[280px] pr-0 mt-5 text-right">
+        <div className="w-full flex items-center justify-start border-b-1 border-gray-500">
+          <h1 className='text-4xl py-8 font-bold'>نتائج البحث <span className="underline">{title}</span></h1>
+        </div>
+        <h2 className="text-xl p-2 mb-2 ">نتائج البحث</h2>
+        <h2 className="text-xl p-2 mb-2 ">الكتب</h2>
+        <div className="flex items-end flex-col">
+            {data?.map(item => (
+              <div key={item.bookId} className="flex items-center gap-2 p-2 flex-row-reverse text-md">
+                <IoMdArrowDropleft className='text-gray-300'/>
+                <Link className="dark:text-teal-400 text-teal-500 cursor-pointer hover:underline" href={item?.bookId}>{item?.bookTitle} </Link> · بقلم
+                <Link className="dark:text-teal-400 text-teal-500 cursor-pointer hover:underline" href={item?.authorId}> {item?.authorTitle}</Link>
+            </div>
+            ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Search

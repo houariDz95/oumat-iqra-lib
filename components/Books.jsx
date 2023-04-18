@@ -10,7 +10,8 @@ const Books = ({books}) => {
     overflow-auto 
     relative 
     h-full 
-    visible-scrollbar px-5
+    visible-scrollbar 
+    px-5
     mx-auto
     pb-[200px]
     ">
