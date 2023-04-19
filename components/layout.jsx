@@ -15,7 +15,7 @@ const Layout = ({children}) => {
     <div className={darkMode ? "dark" : ""}>
     <div  className="h-full flex flex-col bg-main-bg dark:bg-main-dark-bg text-[#222831] dark:text-white overflow-hidden">
       <QueryWrapper>
-        <Header setDarkMode={setDarkMode}/>
+        <Header setDarkMode={setDarkMode} dark={darkMode} />
         <div className="flex-1">
             {children}
         </div>

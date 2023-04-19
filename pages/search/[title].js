@@ -4,7 +4,8 @@ import { useRouter } from 'next/router'
 import Spinner from '../../components/Spinner';
 import { fetchFromAPI } from '@/utils/fetchData';
 import Link from 'next/link';
-import {IoMdArrowDropleft} from 'react-icons/io'
+import {IoMdArrowDropleft} from 'react-icons/io';
+
 async function getSearch(title){
   const response = await fetchFromAPI(`search/${title}`)
   return response
@@ -30,13 +31,13 @@ const Search = () => {
         <h2 className="text-xl p-2 mb-2 ">نتائج البحث</h2>
         <h2 className="text-xl p-2 mb-2 ">الكتب</h2>
         <div className="flex items-end flex-col">
-            {/* data?.map(item => (
+            {data?.map(item => (
               <div key={item.bookId} className="flex items-center gap-2 p-2 flex-row-reverse text-md">
                 <IoMdArrowDropleft className='text-gray-300'/>
                 <Link className="dark:text-teal-400 text-teal-500 cursor-pointer hover:underline" href={item?.bookId}>{item?.bookTitle} </Link> · بقلم
                 <Link className="dark:text-teal-400 text-teal-500 cursor-pointer hover:underline" href={item?.authorId}> {item?.authorTitle}</Link>
             </div>
-            ))*/}
+            ))}
         </div>
       </div>
     </div>

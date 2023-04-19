@@ -21,7 +21,6 @@ const SidebarItem = ({path, name, icon, setCat, cat}) => {
     md:py-3 
     flex-row-reverse
     shadow-md
-    shadow-[#222831]
     px-2 
     rounded-full
     md:ml-0

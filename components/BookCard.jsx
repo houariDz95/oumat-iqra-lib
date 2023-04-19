@@ -4,7 +4,8 @@ import Link from 'next/link';
 const BookCard = ({book}) => {
   return (
     <Link href={`${book.id}`} 
-    className='cursor-pointer
+    className='
+    cursor-pointer
     relative 
     sm:w-[220px] 
     sm:h-[320px]

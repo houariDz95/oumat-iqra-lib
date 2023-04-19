@@ -7,12 +7,14 @@ const Books = ({books}) => {
     flex
     flex-wrap
     justify-between
+    md:justify-end
+    md:gap-x-[50px]
     overflow-auto 
     relative 
     h-full 
     visible-scrollbar 
-    px-5
-    mx-auto
+    px-2
+    md:px-5
     pb-[200px]
     ">
       {books?.map(book => (

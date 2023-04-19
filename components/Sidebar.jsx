@@ -4,7 +4,7 @@ import SidebarItem from './SidebarItem'
 const Sidebar = ({setCat, category}) => {
   return (
     <div className='flex-[0.2]'>
-    <div className="h-auto md:h-screen pb-10 md:w-[20%] md:border-l-1 border-light-gray px-1 fixed right-0">
+    <div className="h-auto md:h-screen pb-10 md:w-[20%] md:border-l-1 border-gray-200 dark:border-[#222831] px-1 fixed right-0">
       <div      
       className="h-full 
       flex sm:flex-row 

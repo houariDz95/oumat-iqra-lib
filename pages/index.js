@@ -19,7 +19,7 @@ export default function Home() {
     .catch(error => console.log(error))
   }, [cat])
   return (
-    <main className="flex w-screen max-h-[95vh] h-full flex-col md:flex-row-reverse">
+    <main className="flex w-screen max-h-[90vh] h-full flex-col md:flex-row-reverse">
       <Sidebar setCat={setCat} category={cat} />
       <Feed books={books} isLoading={isLoading} />
     </main>

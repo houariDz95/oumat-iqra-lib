@@ -21,7 +21,7 @@ export default  function Feed({books, isLoading}){
 
   if(isLoading) return <Spinner />
   return (                               
-    <div className='flex-[0.8] h-screen mt-10 md:mt-0'>
+    <div className='flex-[0.8] min-h-screen mt-10 md:mt-0'>
       <div className="flex items-center justify-between flex-col md:flex-row-reverse w-full mt-5 py-4 px-8">
         <h1 className="text-lg font-normal mb-4 md:mb-0">عرض من {" "}
           <span>{indexOfFirstBook}</span> {" "}
