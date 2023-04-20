@@ -30,12 +30,13 @@ const Author = () => {
         items-center 
         md:items-start 
         md:flex-row-reverse 
-        gap-[30px] md:gap-10">
+        gap-[30px] 
+        md:gap-10">
           <div className="flex-1"> 
             <img 
             src={data?.img} 
             alt="author" 
-            className='max-h-[350px] object-cover border-1 border-light-gray'
+            className='w-[300px] h-full object-cover border-1 border-light-gray'
             />
           </div>
           <div className='flex-1 text-right'>

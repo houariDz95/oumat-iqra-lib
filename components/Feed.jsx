@@ -1,6 +1,4 @@
-import { fetchFromAPI } from '@/utils/fetchData';
-import {useRouter } from 'next/router'
-import { useEffect, useState } from 'react';
+import {useState }  from 'react';
 import Books from './Books';
 import Spinner from './Spinner';
 import Pagination from '@mui/material/Pagination';
@@ -24,11 +22,11 @@ export default  function Feed({books, isLoading}){
     <div className='flex-[0.8] min-h-screen mt-10 md:mt-0'>
       <div className="flex items-center justify-between flex-col md:flex-row-reverse w-full mt-5 py-4 px-8">
         <h1 className="text-lg font-normal mb-4 md:mb-0">عرض من {" "}
-          <span>{indexOfFirstBook}</span> {" "}
+          <span>{indexOfFirstBook + 1}</span> {" "}
           - {" "}
-          <span>{currentBooks?.length}</span> {""}
+          <span>{indexOfLastBook}</span> {""}
           من أصل {" "}
-          <span>{books.length}</span> كتاب
+          <span>{books?.length}</span> كتاب
          </h1>
         <div className='flex flex-row-riverse'>
         <Pagination

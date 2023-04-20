@@ -1,5 +1,5 @@
 import {MdBusinessCenter, MdOutlineTravelExplore} from 'react-icons/md';
-import {BsBookFill, BsFillMapFill} from 'react-icons/Bs'
+import {BsBookFill, BsFillMapFill} from 'react-icons/bs';
 import {FaMosque, FaTheaterMasks} from 'react-icons/fa';
 import {GiReceiveMoney, GiMaterialsScience, GiOpenBook, GiMicrophone} from 'react-icons/gi';
 import {MdOutlineHistoryEdu, MdRocketLaunch, MdNature, MdChildCare} from 'react-icons/md';
