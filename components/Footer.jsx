@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-const Footer = () => {
+function Footer() {
   return (
-    <div>Footer</div>
-  )
+    <footer className="bg-gray-800 py-4">
+      <div className="container mx-auto px-4">
+        <p className="text-gray-400 text-center">© 2023 Eddrief Houari. All rights reserved.</p>
+      </div>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

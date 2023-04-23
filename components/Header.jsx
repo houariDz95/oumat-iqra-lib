@@ -2,23 +2,34 @@ import React, {useState} from 'react'
 import {MdDarkMode, MdLightMode} from 'react-icons/md';
 import {AiFillFacebook} from 'react-icons/ai';
 import {BsSearch} from 'react-icons/bs'
-import Image from 'next/image';
 import {useRouter} from 'next/router';
 import Link from 'next/link';
 
 const Header = ({setDarkMode, dark}) => {
   const [search, setSearch] = useState("")
-  
   const router = useRouter()
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
+    if(!search) return 
     router.push(`/search/${search}`)
     setSearch("")
   }
   
   return (
-    <div className="md:px-[40px] sm:px-4 px-1 items-center max-h-[10vh] py-5 w-full flex justify-between flex-row-reverse border-b-1">
+    <div className="md:px-[40px] 
+    sm:px-4 
+    px-1 
+    items-center 
+    max-h-[10vh] 
+    py-5 
+    w-full 
+    flex 
+    justify-between 
+    flex-row-reverse 
+    border-b-1
+    shadow-md
+    ">
         <Link href="/" className="logo">
           <h1 className="sm:text-lg text-center sm:text-left  text-sm font-bold uppercase">
             oumat {" "}

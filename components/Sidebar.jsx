@@ -1,7 +1,7 @@
 import React from 'react'
 import { categories } from '@/constants'
 import SidebarItem from './SidebarItem'
-const Sidebar = ({setCat, category}) => {
+const Sidebar = () => {
   return (
     <div className='flex-[0.2]'>
     <div className="h-auto max-h-[90vh] 
@@ -23,7 +23,12 @@ const Sidebar = ({setCat, category}) => {
       md:w-full 
       ">
         {categories.map(cat => (
-          <SidebarItem key={cat.name} name={cat.name} path={cat.path} icon={cat.icon} setCat={setCat} cat={category} />
+          <SidebarItem 
+          key={cat.name} 
+          name={cat.name} 
+          path={cat.path} 
+          icon={cat.icon} 
+          />
         ))}
       </div>
     </div>

@@ -1,8 +1,11 @@
+import { useRouter } from "next/router";
 
-const SidebarItem = ({path, name, icon, setCat, cat}) => {
+const SidebarItem = ({path, name, icon}) => {
+  const router = useRouter();
+  const { cat } = router.query;
+
   const handelClick = () => {
-    setCat(path)
-    window.localStorage.setItem("cat", path)
+    router.push(path ? `/?cat=${path}`: '/')
   }
 
   return (   
@@ -22,7 +25,7 @@ const SidebarItem = ({path, name, icon, setCat, cat}) => {
     flex-row-reverse
     shadow-md
     px-2 
-    rounded-full
+    rounded-xl
     md:ml-0
     ml-3
     md:mt-5 
@@ -34,7 +37,7 @@ const SidebarItem = ({path, name, icon, setCat, cat}) => {
       </span>
       <span 
       style={{ opacity: path === cat ? "1" : "0.8"}}
-      className='w-[70px] md:w-[120px] text-right text-sm md:text-md '>
+      className='w-[70px] md:w-[120px] text-right text-sm md:text-[16px]'>
         {name}
       </span>
     </button>

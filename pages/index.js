@@ -1,27 +1,39 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Sidebar from '@/components/Sidebar'
 import Feed from '@/components/Feed'
 import { fetchFromAPI } from '@/utils/fetchData';
 
-export default function Home() {
-  let localCat = typeof window !== 'undefined' ? localStorage.getItem('cat') : null
-  const [cat, setCat] = useState(localCat && localCat)
-  const [books, setBooks] = useState([]);
-  const [isLoading, setIsLoading] = useState(false)
 
-  useEffect(() => {
-    setIsLoading(true)
-    fetchFromAPI(cat !== "new" ? `categories/${cat}` : 'new')
-    .then((data) => {
-      setBooks(data)
-      setIsLoading(false)
-    })
-    .catch(error => console.log(error))
-  }, [cat])
+const  Home = ({books, isLoading}) => {
+  const router = useRouter();
+  const { cat } = router.query;
+
   return (
     <main className="flex w-screen max-h-[90vh] h-full flex-col md:flex-row-reverse">
-      <Sidebar setCat={setCat} category={cat} />
-      <Feed books={books} isLoading={isLoading} />
+      <Sidebar  />
+      <Feed books={books} isLoading={isLoading}  />
     </main>
   )   
 }
+
+export async function getServerSideProps(context) {
+  const { cat } = context.query;
+  let isLoading = true;
+  try {
+    const data = await fetchFromAPI(cat ? `categories/${cat}` : 'new');
+    isLoading = false
+
+    return {
+      props: { books: data, isLoading },
+    };
+  } catch (error) {
+    return {
+      props: { data: null },
+    };
+  }finally{
+    isLoading = false
+  }
+}
+
+export default Home

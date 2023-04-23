@@ -1,8 +1,10 @@
 import {useState }  from 'react';
+
 import Books from './Books';
 import Spinner from './Spinner';
+
 import Pagination from '@mui/material/Pagination';
-    
+
 export default  function Feed({books, isLoading}){
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 20
@@ -12,10 +14,7 @@ export default  function Feed({books, isLoading}){
 
   const paginate = (e, value) => {
     setCurrentPage(value);
-
-    window.scrollTo({ top: 1800, behavior: 'smooth' })
   }
- 
 
   if(isLoading) return <Spinner />
   return (                               
@@ -24,20 +23,33 @@ export default  function Feed({books, isLoading}){
         <h1 className="text-lg font-normal mb-4 md:mb-0">عرض من {" "}
           <span>{indexOfFirstBook + 1}</span> {" "}
           - {" "}
-          <span>{indexOfLastBook}</span> {""}
+          <span>{indexOfLastBook <= books?.length ? indexOfLastBook : books?.length}</span> {""}
           من أصل {" "}
           <span>{books?.length}</span> كتاب
          </h1>
-        <div className='flex flex-row-riverse'>
+        <div >
         <Pagination
           variant="text"
           color="primary"
           shape="rounded"
           defaultPage={1}
-          count={Math.ceil(books.length / booksPerPage)}
+          count={Math.ceil(books?.length / booksPerPage)}
           page={currentPage}
           onChange={paginate}
-          size='large'
+          size="large"
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            flexDirection: "row-reverse!important",
+            "& .MuiPaginationItem-root": {
+              color: "#D65A31",
+              fontWeight: "bold"
+            },
+            "& .Mui-selected": {
+              backgroundColor: "#D65A31!important",
+              color: "white"
+            }
+          }}
         />
         </div>
       </div>

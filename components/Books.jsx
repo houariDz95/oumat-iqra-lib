@@ -18,7 +18,7 @@ const Books = ({books}) => {
     pb-[200px]
     ">
       {books?.map(book => (
-        <BookCard book={book}/>
+        <BookCard book={book} key={book?.id} />
       ))}
     </div>
   )
