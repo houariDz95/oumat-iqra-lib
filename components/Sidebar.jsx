@@ -5,12 +5,12 @@ const Sidebar = () => {
   return (
     <div className='flex-[0.2]'>
     <div className="h-auto max-h-[90vh] 
-    pb-5
+    md:pb-4
     md:w-[20%] 
     md:border-l-1 
     border-gray-200 
     dark:border-[#222831] 
-    px-1 fixed right-0
+    px-1 md:fixed right-0
     overflow-auto
     hidden-scrollbar
     ">
@@ -18,7 +18,9 @@ const Sidebar = () => {
       className="h-full 
       flex sm:flex-row 
       md:flex-col 
-      w-screen 
+      w-screen
+      px-2
+      md:px-0 
       py-3 
       md:w-full 
       ">

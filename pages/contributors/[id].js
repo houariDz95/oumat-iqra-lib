@@ -33,8 +33,20 @@ const Author = ({author, isLoading}) => {
           </div>
         </div>
         <div className="md:pr-[190px] pr-0 mt-5 text-right mb-10 mx-auto">
-          <h1 className='mb-4 text-gray-900 text-lg font-semibold dark:text-white'>لكتب المُؤلّفة للكاتب  {author?.name} ({author?.books?.length} كتاب)</h1>
-          <div className="flex justify-center md:justify-end gap-4 flex-wrap  md:items-start">
+          <h1 className='mb-4 text-2xl font-semibold text-[#20232A] dark:text-[#eeeeee]'>لكتب المُؤلّفة للكاتب  {author?.name} ({author?.books?.length} كتاب)</h1>
+          <div className="
+              w-full 
+              flex
+              flex-wrap
+              justify-evenly
+              md:justify-end
+              md:gap-[50px]
+              gap-3
+              overflow-auto 
+              relative 
+              h-full 
+              md:px-5
+          ">
             {author?.books?.map(book => (
               <BookCard book={book} key={book.id} />
             ))}

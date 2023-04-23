@@ -22,8 +22,8 @@ const Book = ({data, isLoading}) => {
             alt="data" 
             className='max-h-[350px] object-cover border-1 border-light-gray'/>
           </div>
-          <div className='flex-[0.6] text-right'>
-            <h1 className='text-lg text-teal-500 font-semibold mb-3'>{data?.title}</h1>
+          <div className='flex-[0.6] text-right '>
+            <h1 className='text-2xl text-teal-500 font-semibold mb-3'>{data?.title}</h1>
             <h1 className='text-xl font-bold text-[#D65A31] mb-4 hover:underline'>
               <Link href={`${data?.authorId}`} >{data?.author}</Link>
             </h1>
@@ -48,7 +48,7 @@ const Book = ({data, isLoading}) => {
           </div>
         </div>
         <div className="md:pr-[190px] pr-0 mt-5">
-          <h1 className='text-right w-full p-2 leading-10 text-xl font-semibold '>تحميل كتاب {data?.title} مجانا</h1>
+          <h1 className='text-right w-full p-4 leading-10 text-2xl font-semibold text-[#20232A] dark:text-[#eeeeee]'>تحميل كتاب {data?.title} مجانا</h1>
           <div className="w-full flex items-center flex-wrap justify-end gap-5"> 
             {data?.downloadLinks?.map((item, i) => (
               <a 
@@ -74,14 +74,14 @@ const Book = ({data, isLoading}) => {
           </div>
         </div>
         <div className="md:pr-[190px] text-right mt-10">
-          <h1 className='text-right w-full text-lg font-semibold mb-2'>تاريخ إصدارات هذا الكتاب</h1>
+          <h1 className='text-right w-full text-2xl p-4 font-semibold mb-2 text-[#20232A] dark:text-[#eeeeee]'>تاريخ إصدارات هذا الكتاب</h1>
           <p className="text-md ">
             صدر هذا الكتاب عام {" "}
             <span className="text-[#D65A31]">{data?.date}</span>
           </p>
         </div>
         <div className="md:pr-[190px] text-right mt-10">
-          <h1 className='text-right w-full text-lg font-semibold mb-2'>محتوى الكتاب</h1>
+          <h1 className='text-right w-full text-2xl font-semibold p-4 mb-2 text-[#20232A] dark:text-[#eeeeee]'>محتوى الكتاب</h1>
           <div className="flex flex-col items-end gap-4">
               {data?.contents?.map((item, i) => (
                 <span key={item.id} className="text-md text-gray-500 font-semibold flex items-center">
@@ -92,7 +92,7 @@ const Book = ({data, isLoading}) => {
           </div>
         </div>
         <div className="md:pr-[190px] text-right mt-10">
-          <h1 className='text-right w-full p-2  text-lg font-semibold'>عن المؤلف</h1>
+          <h1 className='text-right w-full p-4 text-2xl font-semibold text-[#20232A] dark:text-[#eeeeee]'>عن المؤلف</h1>
             <div className="p-4 ">
               <p className="leading-relaxed">{data?.aboutAuthor}</p>
             </div>

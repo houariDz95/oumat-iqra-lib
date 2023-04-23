@@ -27,6 +27,7 @@ const Header = ({setDarkMode, dark}) => {
     flex 
     justify-between 
     flex-row-reverse 
+    dark:border-[#222831]
     border-b-1
     shadow-md
     ">
