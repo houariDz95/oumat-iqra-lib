@@ -1,28 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import Sidebar from '@/components/Sidebar'
 import Feed from '@/components/Feed'
 import { fetchFromAPI } from '@/utils/fetchData';
 import Footer from '@/components/Footer';
 
 
-const  Home = () => {
-  const router = useRouter();
-  const {cat} = router.query
-  const [isLoading, setIsLoding] = useState(false);
-  const [books, setBooks] = useState([])
-
-  const fetchData = async () => {
-    setIsLoding(true)
-    const data = await fetchFromAPI(cat ? `categories/${cat}` : 'new');
-    setBooks(data)
-    setIsLoding(false)
-  }
-
-  useEffect(() => {
-    fetchData()
-  }, [cat])
-  console.log(books ,cat )
+const  Home = ({books, isLoading}) => {
+  
   return (
     <main className="flex w-screen md:max-h-[90vh] h-full flex-col md:flex-row-reverse">
       <Sidebar  />
@@ -34,5 +17,22 @@ const  Home = () => {
   )   
 }
 
+export async function getServerSideProps() {
+  let isLoading = true;
+  try {
+    const data = await fetchFromAPI('new');
+    isLoading = false
+
+    return {
+      props: { books: data, isLoading },
+    };
+  } catch (error) {
+    return {
+      props: { data: null },
+    };
+  }finally{
+    isLoading = false
+  }
+}
 
 export default Home

@@ -1,17 +1,23 @@
 import { useRouter } from "next/router";
+import {useEffect} from 'react';
 
 const SidebarItem = ({path, name, icon}) => {
   const router = useRouter();
   const { cat } = router.query;
 
+  useEffect(() => {
+    const activeItem = document.querySelector('.active');
+    activeItem.scrollIntoView({ behavior: 'smooth' });
+  }, [cat])
+
   const handelClick = () => {
-    router.push(path ? `/?cat=${path}`: '/')
+    router.push(path ? `/categories/${path}` : "/");
   }
 
   return (   
     <button onClick={handelClick}
     className={`
-    ${path === cat  ? "bg-main-red text-white" : "text-[#222831] dark:text-white"}
+    ${path === cat  ? "bg-main-red text-white active" : "text-[#222831] dark:text-white"}
     hover:bg-main-red
     hover:text-white
     group

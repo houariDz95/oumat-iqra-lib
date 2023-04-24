@@ -9,7 +9,7 @@ const Book = ({data, isLoading}) => {
   const router = useRouter();
   
   const handelClick = (cat) => {
-    router.push(`/?cat=${cat}`)
+    router.push(`/categories/${cat}`)
   }
   if(isLoading) return  <Spinner />
   return (
