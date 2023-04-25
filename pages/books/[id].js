@@ -1,5 +1,5 @@
 import { fetchFromAPI } from '@/utils/fetchData';
-import Spinner from '@/components/Spinner';
+import {Circular} from '@/components/Spinner';
 import {useRouter} from 'next/router';
 import Link from 'next/link';
 import {IoMdArrowDropleft} from 'react-icons/io'
@@ -11,7 +11,7 @@ const Book = ({data, isLoading}) => {
   const handelClick = (cat) => {
     router.push(`/categories/${cat}`)
   }
-  if(isLoading) return  <Spinner />
+  if(isLoading) return  <Circular />
   return (
       <div>
         <div className='px-5 sm:px-10 md:px-20 min-h-screen my-10 '>
@@ -93,7 +93,7 @@ const Book = ({data, isLoading}) => {
         </div>
         <div className="md:pr-[190px] text-right mt-10">
           <h1 className='text-right w-full p-4 text-2xl font-semibold text-[#20232A] dark:text-[#eeeeee]'>عن المؤلف</h1>
-            <div className="p-4 ">
+            <div className="p-2 ">
               <p className="leading-relaxed">{data?.aboutAuthor}</p>
             </div>
         </div>

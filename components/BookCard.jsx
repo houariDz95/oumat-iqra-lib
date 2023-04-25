@@ -26,13 +26,15 @@ const BookCard = ({book}) => {
        left-[50%] 
        translate-x-[-50%] 
        translate-y-[-50%] 
-       group-hover:block
+       md:group-hover:block
        bg-main-red
        text-white
        text-lg
        font-bold
        w-[80%]
        py-2
+       border-1
+       border-gray-500
        rounded-full
        text-center
        opacity-1

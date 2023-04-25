@@ -1,4 +1,4 @@
-import Spinner from '../../components/Spinner';
+import {Circular} from '../../components/Spinner';
 import { fetchFromAPI } from '@/utils/fetchData';
 import Link from 'next/link';
 import {IoMdArrowDropleft} from 'react-icons/io';
@@ -7,7 +7,7 @@ const Search = ({data, isLoading}) => {
   const router = useRouter()
   const {keyword} = router.query
 
-    if(isLoading) return <Spinner />
+    if(isLoading) return <Circular />
 
     return (
     <div className="px-5 sm:px-10 md:px-20 min-h-screen mt-10">

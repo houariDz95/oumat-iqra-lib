@@ -1,11 +1,11 @@
-import Spinner from '@/components/Spinner';
+import {Circular} from '@/components/Spinner';
 import BookCard from '../../components/BookCard'
 import { fetchFromAPI } from '@/utils/fetchData';
 import Footer from '@/components/Footer'
 
 const Author = ({author, isLoading}) => {
 
-  if(isLoading) return <Spinner />
+  if(isLoading) return <Circular />
   return (
     <div>
       <div className='px-5 sm:px-10 min-h-screen mt-10 '>

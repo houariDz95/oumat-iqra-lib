@@ -4,7 +4,7 @@ import {AiFillFacebook} from 'react-icons/ai';
 import {BsSearch} from 'react-icons/bs'
 import {useRouter} from 'next/router';
 import Link from 'next/link';
-
+import Image from 'next/image';
 const Header = ({setDarkMode, dark}) => {
   const [search, setSearch] = useState("")
   const router = useRouter()
@@ -23,7 +23,7 @@ const Header = ({setDarkMode, dark}) => {
     items-center 
     min-h-[10vh]
     h-full
-    py-5
+    py-2
     w-full 
     flex 
     justify-between 
@@ -32,11 +32,13 @@ const Header = ({setDarkMode, dark}) => {
     border-b-1
     shadow-md
     ">
-        <Link href="/" className="logo">
-          <h1 className="sm:text-lg text-center sm:text-left  text-sm font-bold uppercase">
-            oumat {" "}
-            <span className="text-[#D65A31]">iqraa</span>
-          </h1>
+      <Link href="/">
+        <Image
+          src="/images/oumat-iqraa-website-favicon-color.png"
+          alt="logo"
+          width={50}
+          height={50}
+        />
         </Link>
         <div className="flex items-center sm:gap-2 gap-1 flex-row-reverse">
           <form onSubmit={onSubmit} className='px-2 py-1 border-1 border-gray-400 flex items-center rounded-lg'>
@@ -48,7 +50,7 @@ const Header = ({setDarkMode, dark}) => {
             onChange={(e) => setSearch(e.target.value)}
             type='text' 
             placeholder='...بحث' 
-            className="flex-1 bg-transparent focus:outline-none text-right" 
+            className="flex-1 bg-transparent focus:outline-none text-right md:focus:w-[250px] " 
             />
           </form>
           <div className='h-full w-[1px] bg-gray-500 sm:mx-2 mx-1 '/>

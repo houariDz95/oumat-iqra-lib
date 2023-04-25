@@ -1,7 +1,7 @@
 import {useState }  from 'react';
 
 import Books from './Books';
-import Spinner from './Spinner';
+import {Circular} from './Spinner';
 
 import Pagination from '@mui/material/Pagination';
 
@@ -16,7 +16,7 @@ export default  function Feed({books, isLoading}){
     setCurrentPage(value);
   }
 
-  if(isLoading) return <Spinner />
+  if(isLoading) return <Circular />
   return (                               
     <div className='md:flex-[0.8] min-h-screen mt-3 md:mt-0'>
       <div className="flex items-center justify-between flex-col md:flex-row-reverse w-full  py-4 px-8">

@@ -1,9 +1,11 @@
 import Header from "./Header"
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import LinearProgress from '@mui/material/LinearProgress';
-
+import Head from 'next/head'
 import { Noto_Kufi_Arabic } from 'next/font/google'
+import { LinearProgress } from "@mui/material";
+
+
 const kofi = Noto_Kufi_Arabic ({
   subsets: ['arabic'],
   weight: ["400", "700"],
@@ -55,15 +57,19 @@ const Layout = ({children}) => {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      <div className="absolute top-0 w-full">
-      {loading &&  <LinearProgress sx={{color: "red"}} variant="determinate" color="info"  value={progress} />}
+      <Head>
+        <title>Oumat Iqraa Library</title>
+        <link rel="icon" href="/images/oumat-iqraa-website-favicon-color.png"  sizes="64x64" />
+      </Head>
+      <div className="fixed z-10 top-0 w-full">
+        {loading &&  <LinearProgress sx={{color: "red"}} variant="determinate" color="info"  value={progress} />}
       </div>
-    <div  className="h-full flex flex-col bg-main-bg dark:bg-main-dark-bg text-gray-500 dark:text-white overflow-hidden">
+      <div  className="h-full flex flex-col bg-main-bg dark:bg-main-dark-bg text-gray-500 dark:text-white overflow-hidden">
         <Header setDarkMode={setDarkMode} dark={darkMode} />
         <div className="flex-1">
-            {children}
+          {children}
         </div>
-    </div>
+      </div>
     </div>
   )
 }
