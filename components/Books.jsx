@@ -9,12 +9,12 @@ const Books = ({books}) => {
     flex-wrap
     justify-evenly
     md:justify-end
-    md:gap-[50px]
+    md:gap-[30px]
     overflow-auto 
     relative 
     h-full 
     visible-scrollbar 
-    md:px-5
+    md:px-2
     md:pb-[200px]
     ">
       {books?.map(book => (

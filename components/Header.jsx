@@ -21,8 +21,9 @@ const Header = ({setDarkMode, dark}) => {
     sm:px-4 
     px-1 
     items-center 
-    max-h-[10vh] 
-    py-5 
+    min-h-[10vh]
+    h-full
+    py-5
     w-full 
     flex 
     justify-between 

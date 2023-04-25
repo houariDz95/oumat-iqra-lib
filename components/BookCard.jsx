@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import Link from 'next/link';
 const BookCard = ({book}) => {
   return (
@@ -17,7 +16,7 @@ const BookCard = ({book}) => {
     transition-all
     duration-500
     '>
-      <div className='w-full h-full group-hover:opacity-30 '>
+      <div className='w-full h-full md:group-hover:opacity-30 '>
         <img src={book.img} alt="book"  className='w-full h-full'/>
       </div>
       <span 
