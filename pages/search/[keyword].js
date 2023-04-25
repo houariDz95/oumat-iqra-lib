@@ -18,13 +18,13 @@ const Search = ({data, isLoading}) => {
         <h2 className="text-xl p-2 mb-2 ">نتائج البحث</h2>
         <h2 className="text-xl p-2 mb-2 ">الكتب</h2>
         <div className="flex items-end flex-col">
-          {data?.map(item => (
+          {data ? data?.map(item => (
               <div key={item.bookId} className="flex items-center gap-2 p-2 flex-row-reverse text-md">
                 <IoMdArrowDropleft className='text-gray-300'/>
                 <Link className="dark:text-teal-400 text-teal-500 cursor-pointer hover:underline" href={item?.bookId}>{item?.bookTitle} </Link> · بقلم
                 <Link className="dark:text-teal-400 text-teal-500 cursor-pointer hover:underline" href={item?.authorId}> {item?.authorTitle}</Link>
             </div>
-            ))}
+            )) : <h1 className='text-4xl font-extrabold text-center'> 😢لا توجد نتائج للبحث.</h1>}
         </div>
       </div>
     </div>
