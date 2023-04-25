@@ -6,7 +6,8 @@ const options = {
   headers: {
     'X-RapidAPI-Key': process.env.RAPIDE_API_KEY,
     'X-RapidAPI-Host': 'arabic-books-library.p.rapidapi.com'
-  }
+  },
+  params: {maxResults: '50'},
 };
 
 export const fetchFromAPI = async (url) => {

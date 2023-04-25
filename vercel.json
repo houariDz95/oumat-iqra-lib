@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "categories/[cat].js": {
+      "timeout": 40
+    }
+  }
+}
