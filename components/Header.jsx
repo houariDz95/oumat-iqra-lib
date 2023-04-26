@@ -50,7 +50,7 @@ const Header = ({setDarkMode, dark}) => {
             onChange={(e) => setSearch(e.target.value)}
             type='text' 
             placeholder='...بحث' 
-            className="flex-1 bg-transparent focus:outline-none text-right md:focus:w-[250px] transition-all duration-250" 
+            className="flex-1 bg-transparent focus:outline-none text-right md:focus:w-[250px]" 
             />
           </form>
           <div className='h-full w-[1px] bg-gray-500 sm:mx-2 mx-1 '/>
