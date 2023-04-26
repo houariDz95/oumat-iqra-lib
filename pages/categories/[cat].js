@@ -11,7 +11,6 @@ const  Categories = () => {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   const {cat} = router.query;
-
   const fetchData = async() => {
     setIsLoading(true);
     const data  = await fetchFromAPI(`categories/${cat}`);

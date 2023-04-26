@@ -7,9 +7,13 @@ const Books = ({books}) => {
     w-full 
     flex
     flex-wrap
-    justify-evenly
+    justify-center
     md:justify-end
     md:gap-[30px]
+    lg:gap-[20px]
+    gap-[15px]
+    mr-5
+    mb-[100px]
     overflow-auto 
     relative 
     h-full 

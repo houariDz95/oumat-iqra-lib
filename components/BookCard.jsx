@@ -7,17 +7,15 @@ const BookCard = ({book}) => {
     cursor-pointer
     relative 
     sm:w-[220px] 
-    sm:h-[320px]
+    sm:h-[300px]
     xs:w-[180px]
-    xs:h-[280px]
+    xs:h-[260px]
     w-[160px]
-    h-[260px]
+    h-[240px]
     group
-    transition-all
-    duration-500
     '>
       <div className='w-full h-full md:group-hover:opacity-30 '>
-        <img src={book.img} alt="book"  className='w-full h-full'/>
+        <img src={book.img} alt="book"  className='w-full h-full object-cover' />
       </div>
       <span 
       className='hidden
@@ -33,8 +31,6 @@ const BookCard = ({book}) => {
        font-bold
        w-[80%]
        py-2
-       border-1
-       border-gray-500
        rounded-full
        text-center
        opacity-1

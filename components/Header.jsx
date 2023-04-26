@@ -23,7 +23,7 @@ const Header = ({setDarkMode, dark}) => {
     items-center 
     min-h-[10vh]
     h-full
-    py-2
+    py-1
     w-full 
     flex 
     justify-between 
@@ -50,7 +50,7 @@ const Header = ({setDarkMode, dark}) => {
             onChange={(e) => setSearch(e.target.value)}
             type='text' 
             placeholder='...بحث' 
-            className="flex-1 bg-transparent focus:outline-none text-right md:focus:w-[250px] " 
+            className="flex-1 bg-transparent focus:outline-none text-right md:focus:w-[250px] transition-all duration-250" 
             />
           </form>
           <div className='h-full w-[1px] bg-gray-500 sm:mx-2 mx-1 '/>
