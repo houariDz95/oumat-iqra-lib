@@ -66,7 +66,7 @@ export async function getServerSideProps({ params }) {
   isLoading = false;
   return { props: { author: data, isLoading } };
   }catch(error){
-    console.log(error)
+    console.log(error.message)
   }finally{
     isLoading = false;
   }

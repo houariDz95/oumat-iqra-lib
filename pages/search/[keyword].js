@@ -8,7 +8,6 @@ const Search = ({data, isLoading}) => {
   const {keyword} = router.query
 
     if(isLoading) return <Circular />
-    console.log(data)
     return (
     <div className="px-5 sm:px-10 md:px-20 min-h-screen mt-10">
       <div className="mt-10 text-right">
@@ -37,7 +36,7 @@ export async function getServerSideProps({ params }) {
   isLoading = false;
   return { props: { data, isLoading } };
   }catch(error){
-    console.log(error)
+    console.log(error.message)
   }finally{
     isLoading = false;
   }

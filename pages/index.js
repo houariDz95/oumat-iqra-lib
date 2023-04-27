@@ -27,9 +27,7 @@ export async function getServerSideProps() {
       props: { books: data, isLoading },
     };
   } catch (error) {
-    return {
-      props: { data: null },
-    };
+    console.log(error.message);
   }finally{
     isLoading = false
   }
