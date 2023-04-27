@@ -55,7 +55,9 @@ const Header = ({setDarkMode, dark}) => {
           </form>
           <div className='h-full w-[1px] bg-gray-500 sm:mx-2 mx-1 '/>
           <div className="flex items-center sm:gap-2 gap-1">
-            <AiFillFacebook size={25} className='text-gray-500 hover:text-gray-400'/>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=100052895390979">
+              <AiFillFacebook size={25} className='text-gray-500 hover:text-gray-400'/>
+            </a>
             {dark ? 
             <MdDarkMode size={25} color="#D65A31" onClick={() => setDarkMode(false)}/> : 
             <MdLightMode size={25} color="#D65A31" onClick={() => setDarkMode(true)}/>
