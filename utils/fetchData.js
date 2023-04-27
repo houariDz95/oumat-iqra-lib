@@ -5,7 +5,7 @@ const BASE_URL = "https://arabic-books-library.p.rapidapi.com";
 
 const options = {
   headers: {
-    'X-RapidAPI-Key': '4844e827bbmshb9b6f82534db67fp10aac7jsnb4dbf81ae51e',
+    'X-RapidAPI-Key': process.env.RAPIDEAPI_KEY,
     'X-RapidAPI-Host': 'arabic-books-library.p.rapidapi.com'
   }
 };

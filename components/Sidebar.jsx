@@ -6,6 +6,7 @@ const Sidebar = () => {
     <div className='flex-[0.2]'>
     <div className="h-auto max-h-[90vh] 
     md:pb-4
+
     md:w-[20%] 
     md:border-l-1 
     border-gray-200 

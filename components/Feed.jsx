@@ -4,6 +4,7 @@ import Books from './Books';
 import {Circular} from './Spinner';
 
 import Pagination from '@mui/material/Pagination';
+import Footer from './Footer';
 
 export default  function Feed({books, isLoading}){
   const [currentPage, setCurrentPage] = useState(1);

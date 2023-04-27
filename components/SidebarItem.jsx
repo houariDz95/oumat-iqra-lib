@@ -37,7 +37,7 @@ const SidebarItem = ({path, name, icon}) => {
     md:mt-5 
     `}>
       <span 
-      className={`${path === cat ? "text-white " : "text-[#D65A31]" } group-hover:text-white `}
+      className={`${path === cat ? "text-white " : "text-[#D65A31]" } group-hover:text-white text-xl`}
       >
         {icon}
       </span>

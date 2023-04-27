@@ -1,5 +1,6 @@
 import React from 'react'
 import BookCard from './BookCard'
+import Footer from './Footer'
 
 const Books = ({books}) => {
   return (
@@ -19,11 +20,14 @@ const Books = ({books}) => {
     h-full 
     visible-scrollbar 
     md:px-2
-    md:pb-[200px]
+    md:pb-[151px]
     ">
       {books?.map(book => (
         <BookCard book={book} key={book?.id} />
       ))}
+      <div className='w-full hidden md:block'>
+        <Footer />
+      </div>
     </div>
   )
 }
