@@ -1,17 +1,13 @@
-import {useState }  from 'react';
 
 import Books from './Books';
 import {Circular} from './Spinner';
 
 import Pagination from '@mui/material/Pagination';
-import Footer from './Footer';
 
-export default  function Feed({books, isLoading}){
-  const [currentPage, setCurrentPage] = useState(1);
-  const booksPerPage = 20
+export default  function Feed({books, currentPage, setCurrentPage, pages, isLoading, totalBooks}){
+  const booksPerPage = 25
   const indexOfLastBook = currentPage * booksPerPage;
-  const indexOfFirstBook = indexOfLastBook - booksPerPage;
-  const currentBooks = books?.slice(indexOfFirstBook, indexOfLastBook)
+  const indexOfFirstBook = indexOfLastBook - booksPerPage
 
   const paginate = (e, value) => {
     setCurrentPage(value);
@@ -22,11 +18,11 @@ export default  function Feed({books, isLoading}){
     <div className='md:flex-[0.8] min-h-screen mt-3 md:mt-0'>
       <div className="flex items-center justify-between flex-col md:flex-row-reverse w-full  py-4 md:px-8">
         <h1 className="text-lg font-normal mb-4 md:mb-0">عرض من {" "}
-          <span>{indexOfFirstBook + 1}</span> {" "}
+          <span>{indexOfFirstBook + 1 || 1}</span> {" "}
           - {" "}
-          <span>{indexOfLastBook <= books?.length ? indexOfLastBook : books?.length}</span> {""}
+          <span>{indexOfLastBook <= totalBooks ? indexOfLastBook : totalBooks || books.length}</span> {""}
           من أصل {" "}
-          <span>{books?.length}</span> كتاب
+          <span>{totalBooks|| books.length}</span> كتاب
          </h1>
         <div >
         <Pagination
@@ -34,7 +30,7 @@ export default  function Feed({books, isLoading}){
           color="primary"
           shape="rounded"
           defaultPage={1}
-          count={Math.ceil(books?.length / booksPerPage)}
+          count={pages}
           page={currentPage}
           onChange={paginate}
           size="large"
@@ -54,7 +50,7 @@ export default  function Feed({books, isLoading}){
         />
         </div>
       </div>
-      <Books books={currentBooks} />
+      <Books books={books} />
     </div>
   )
 }

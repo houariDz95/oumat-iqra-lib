@@ -1,7 +1,7 @@
 import React from 'react'
 import { categories } from '@/constants'
 import SidebarItem from './SidebarItem'
-const Sidebar = () => {
+const Sidebar = ({setCurrentPage}) => {
   return (
     <div className='flex-[0.2]'>
     <div className="h-auto max-h-[90vh] 
@@ -27,6 +27,7 @@ const Sidebar = () => {
       ">
         {categories.map(cat => (
           <SidebarItem 
+          setCurrentPage={setCurrentPage}
           key={cat.name} 
           name={cat.name} 
           path={cat.path} 

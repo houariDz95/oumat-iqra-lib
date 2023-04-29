@@ -17,15 +17,15 @@ const Books = ({books}) => {
     mb-[100px]
     overflow-auto 
     relative 
-    h-full 
     visible-scrollbar 
+    h-full
     md:px-2
     md:pb-[151px]
     ">
       {books?.map(book => (
         <BookCard book={book} key={book?.id} />
       ))}
-      <div className='w-full hidden md:block'>
+      <div className='w-full hidden md:block '>
         <Footer />
       </div>
     </div>

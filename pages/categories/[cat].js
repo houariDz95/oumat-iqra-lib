@@ -8,24 +8,37 @@ import { useRouter } from 'next/router';
 
 const  Categories = () => {
   const [books, setBooks] = useState([]);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pages, setPages] = useState(1);
+  const [totalBooks, setTotalBooks] = useState(null);
+
   const router = useRouter()
   const {cat} = router.query;
+
   const fetchData = async() => {
     setIsLoading(true);
-    const data  = await fetchFromAPI(`categories/${cat}`);
+    const data  = await fetchFromAPI(`categories/${cat}`, currentPage);
     setIsLoading(false)
-    setBooks(data)
+    setBooks(data.books)
+    setPages(data.totalPages)
+    setTotalBooks(data.totalBooks)
   }
-
   useEffect(() => {
     fetchData()
-  }, [cat])
-  
+  }, [cat, currentPage])
+
   return (
     <main className="flex w-screen md:max-h-[90vh] h-full flex-col md:flex-row-reverse">
-      <Sidebar  />
-      <Feed books={books} isLoading={isLoading}  />
+      <Sidebar  setCurrentPage={setCurrentPage}/>
+      <Feed 
+      books={books} 
+      isLoading={isLoading} 
+      currentPage={currentPage} 
+      setCurrentPage={setCurrentPage} 
+      pages={pages} 
+      totalBooks={totalBooks}
+      /> 
       <div className="block md:hidden">
        <Footer />
       </div>

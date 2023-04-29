@@ -1,17 +1,19 @@
 import { useRouter } from "next/router";
 import {useEffect} from 'react';
 
-const SidebarItem = ({path, name, icon}) => {
+const SidebarItem = ({path, name, icon, setCurrentPage}) => {
   const router = useRouter();
   const { cat } = router.query;
 
   useEffect(() => {
     const activeItem = document.querySelector('.active');
     activeItem.scrollIntoView({ behavior: 'smooth' });
+    
   }, [cat])
 
   const handelClick = () => {
     router.push(path ? `/categories/${path}` : "/");
+    setCurrentPage && setCurrentPage(1)
   }
 
   return (   
