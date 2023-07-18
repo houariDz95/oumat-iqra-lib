@@ -6,7 +6,7 @@ const BASE_URL = "https://arabic-books-library.p.rapidapi.com";
 export const fetchFromAPI = async (url, currentPage) => {
   const options = {
     headers: {
-      'X-RapidAPI-Key': process.env.RAPIDEAPI_KEY,
+      'X-RapidAPI-Key': 'process.env.RAPIDEAPI_KEY',
       'X-RapidAPI-Host': 'arabic-books-library.p.rapidapi.com',
     },
     params: {page: currentPage},

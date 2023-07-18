@@ -4,6 +4,7 @@ import { fetchFromAPI } from '@/utils/fetchData';
 import Footer from '@/components/Footer';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 
 const  Categories = () => {
@@ -29,20 +30,26 @@ const  Categories = () => {
   }, [cat, currentPage])
 
   return (
-    <main className="flex w-screen md:max-h-[90vh] h-full flex-col md:flex-row-reverse">
-      <Sidebar  setCurrentPage={setCurrentPage}/>
-      <Feed 
-      books={books} 
-      isLoading={isLoading} 
-      currentPage={currentPage} 
-      setCurrentPage={setCurrentPage} 
-      pages={pages} 
-      totalBooks={totalBooks}
-      /> 
-      <div className="block md:hidden">
-       <Footer />
-      </div>
-    </main>
+    <>
+      <Head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4378697867992790"
+        crossorigin="anonymous"></script>
+      </Head>
+      <main className="flex w-screen md:max-h-[90vh] h-full flex-col md:flex-row-reverse">
+        <Sidebar  setCurrentPage={setCurrentPage}/>
+        <Feed 
+        books={books} 
+        isLoading={isLoading} 
+        currentPage={currentPage} 
+        setCurrentPage={setCurrentPage} 
+        pages={pages} 
+        totalBooks={totalBooks}
+        /> 
+        <div className="block md:hidden">
+        <Footer />
+        </div>
+      </main>
+    </>
   )   
 }
 

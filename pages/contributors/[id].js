@@ -2,11 +2,17 @@ import {Circular} from '@/components/Spinner';
 import BookCard from '../../components/BookCard'
 import { fetchFromAPI } from '@/utils/fetchData';
 import Footer from '@/components/Footer'
+import Head from 'next/head';
 
 const Author = ({author, isLoading}) => {
 
   if(isLoading) return <Circular />
   return (
+    <>
+    <Head>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4378697867992790"
+      crossorigin="anonymous"></script>
+    </Head>
     <div>
       <div className='px-5 sm:px-10 min-h-screen mt-10 '>
         <div  className="w-full 
@@ -55,6 +61,7 @@ const Author = ({author, isLoading}) => {
       </div> 
       <Footer />
     </div>
+    </>
   )
 }
 

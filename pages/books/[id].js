@@ -4,6 +4,7 @@ import {useRouter} from 'next/router';
 import Link from 'next/link';
 import {IoMdArrowDropleft} from 'react-icons/io'
 import Footer from '@/components/Footer'
+import Head from 'next/head';
 
 const Book = ({data, isLoading}) => {
   const router = useRouter();
@@ -13,6 +14,11 @@ const Book = ({data, isLoading}) => {
   }
   if(isLoading) return  <Circular />
   return (
+    <>
+    <Head>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4378697867992790"
+      crossorigin="anonymous"></script>
+    </Head>
       <div>
         <div className='px-5 sm:px-10 md:px-20 min-h-screen my-10 '>
         <div className='w-full h-full flex flex-col items-center md:items-start md:flex-row-reverse gap-[30px] md:gap-10'>
@@ -100,6 +106,7 @@ const Book = ({data, isLoading}) => {
       </div>
       <Footer />
     </div>
+    </>
   ) 
 }
 
